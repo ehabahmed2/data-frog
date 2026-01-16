@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataFrog | Secure Offline Data Cleaning Tool</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --emerald: #10b981;
+            --slate-blue: #6d7ba8;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f9ff 0%, #fef7ff 100%);
+        }
+        
+        .btn-primary {
+            background-color: var(--emerald);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0da271;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--emerald);
+            color: var(--emerald);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(16, 185, 129, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .feature-icon {
+            background-color: rgba(16, 185, 129, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--emerald);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--emerald);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .download-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--emerald);
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 16px 24px;
+        }
+        
+        .comparison-table tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .checkmark {
+            color: var(--emerald);
+        }
+        
+        .crossmark {
+            color: #ef4444;
+        }
+        
+        .app-screenshot {
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+        
+        .app-screenshot:hover {
+            transform: scale(1.02);
+        }
+    </style>
+
+</head>
+<body class="text-gray-800">
+    <!-- Navigation -->
+    <nav class="sticky-nav py-4 border-b">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-2xl font-bold text-gray-900">Data<span class="text-emerald-600">Frog</span> 🐸</div>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#features" class="text-gray-600 hover:text-emerald-600 transition">Features</a>
+                <a href="#how-it-works" class="text-gray-600 hover:text-emerald-600 transition">How It Works</a>
+                <a href="#download" class="text-gray-600 hover:text-emerald-600 transition">Download</a>
+                <a href="#faq" class="text-gray-600 hover:text-emerald-600 transition">FAQ</a>
+                
+                <!-- GUMROAD LINK 1 -->
+                <a href="https://ehabjoe.gumroad.com/l/datafrog" class="btn-primary text-white font-medium py-2 px-6 rounded-lg">Get it Free</a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#features" class="text-gray-600 hover:text-emerald-600 transition">Features</a>
+                <a href="#how-it-works" class="text-gray-600 hover:text-emerald-600 transition">How It Works</a>
+                <a href="#download" class="text-gray-600 hover:text-emerald-600 transition">Download</a>
+                
+                <!-- GUMROAD LINK 2 -->
+                <a href="https://ehabjoe.gumroad.com/l/datafrog" class="btn-primary text-white font-medium py-3 px-6 rounded-lg text-center">Get it Free</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Stop Sending Your Sensitive Data to the Cloud.</h1>
+                    <p class="text-xl text-gray-600 mb-8">The secure, offline tool to clean messy data, fix typos, and fuzzy-match lists using AI—right on your desktop.</p>
+                    
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <!-- GUMROAD LINK 3 -->
+                        <a href="https://ehabjoe.gumroad.com/l/datafrog" class="btn-primary text-white font-medium py-3 px-8 rounded-lg text-center">
+                            <i class="fas fa-download mr-2"></i> Download Now
+                        </a>
+                        <a href="#how-it-works" class="btn-outline font-medium py-3 px-8 rounded-lg text-center">
+                            <i class="fas fa-play-circle mr-2"></i> See how it works
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center">
+                        <div class="flex text-emerald-600">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <span class="font-medium">100% Offline</span>
+                        </div>
+                        <div class="mx-4 text-gray-300">|</div>
+                        <div class="flex text-emerald-600">
+                            <i class="fas fa-tag mr-2"></i>
+                            <span class="font-medium">No Monthly Fees</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 lg:pl-12">
+                    <div class="bg-white p-2 rounded-xl shadow-2xl">
+                        <!-- Replaced specific UI code with a placeholder for your CANVA screenshot -->
+                        <div class="app-screenshot overflow-hidden rounded-lg bg-gray-100 flex items-center justify-center h-64 md:h-80">
+                            <div class="text-center text-gray-400">
+                                <img src="2.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Grid -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Problem with Today's Data Tools</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Existing solutions put your data at risk or require manual, error-prone work.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Problem 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 text-xl mb-6">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Privacy Risks</h3>
+                    <p class="text-gray-600 mb-4">Online data cleaners require uploading your sensitive files to their servers, where your data can be stolen or leaked.</p>
+                </div>
+                
+                <!-- Problem 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-600 text-xl mb-6">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Excel Hell</h3>
+                    <p class="text-gray-600 mb-4">VLOOKUP fails on slight spelling variations. "Jon Smith" and "John Smith" are completely different to Excel.</p>
+                </div>
+                
+                <!-- Problem 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-xl mb-6">
+                        <i class="fas fa-clone"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Duplicate Dilemma</h3>
+                    <p class="text-gray-600 mb-4">Identifying 'Ahmad' and 'Ahmed' as the same person is impossible in Excel without complex scripts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution / Features -->
+    <section id="features" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The DataFrog Solution</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Powerful data cleaning with AI, entirely on your computer.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border">
+                    <div class="feature-icon mb-6">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">AI Fuzzy Merge</h3>
+                    <p class="text-gray-600 mb-4">Join two files even if names aren't spelled perfectly. It's like VLOOKUP with a brain.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Smart name matching (Jon → John)</li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Merge Lists Offline</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border">
+                    <div class="feature-icon mb-6">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Privacy Mode</h3>
+                    <p class="text-gray-600 mb-4">Anonymize PII (emails, phones) instantly before sharing files. Keep sensitive data secure.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Mask Emails (j***@gmail.com)</li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Mask Phone Numbers</li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border">
+                    <div class="feature-icon mb-6">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Smart Repair</h3>
+                    <p class="text-gray-600 mb-4">Automatically fixes broken CSV rows (like '$3,500' split by commas) that crash other tools.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Fix Malformed CSVs</li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Standardize Dates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Clean your data in three simple steps—no internet connection required.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-6">
+                        <div class="step-number">1</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Drag & Drop File</h3>
+                    <p class="text-gray-600 mb-6">Import CSV or Excel files directly into DataFrog. No uploads, no waiting.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-6">
+                        <div class="step-number">2</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Toggle Options</h3>
+                    <p class="text-gray-600 mb-6">Select which operations to run: deduplication, fuzzy matching, or format repair.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="flex justify-center mb-6">
+                        <div class="step-number">3</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Download Result</h3>
+                    <p class="text-gray-600 mb-6">Get your cleaned, formatted data file saved directly to your computer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Download DataFrog</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Get the version for your operating system.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Windows -->
+                <div class="download-card bg-white p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl mx-auto mb-6">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Windows</h3>
+                    <p class="text-gray-600 mb-6">Windows 10 & 11</p>
+                    
+                    <!-- GUMROAD LINK 4 -->
+                    <a href="https://ehabjoe.gumroad.com/l/datafrog" class="btn-primary text-white font-medium py-3 px-6 rounded-lg w-full block">
+                        <i class="fas fa-download mr-2"></i> Get on Gumroad
+                    </a>
+                </div>
+                
+                <!-- Mac -->
+                <div class="download-card bg-white p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 text-2xl mx-auto mb-6">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">macOS</h3>
+                    <p class="text-gray-600 mb-6">Intel & Apple Silicon</p>
+                    
+                    <!-- GUMROAD LINK 5 -->
+                    <a href="https://ehabjoe.gumroad.com/l/datafrog" class="btn-primary text-white font-medium py-3 px-6 rounded-lg w-full block">
+                        <i class="fas fa-download mr-2"></i> Get on Gumroad
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Is my data really processed offline?</h3>
+                    <p class="text-gray-600">Yes! DataFrog runs entirely on your computer. No data is ever sent to external servers.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">How much does it cost?</h3>
+                    <p class="text-gray-600">DataFrog is currently available on a "Pay What You Want" basis. You can get it for free to start.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Legal (REQUIRED FOR LEMON SQUEEZY) -->
+    <footer class="py-10 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="text-2xl font-bold">Data<span class="text-emerald-400">Frog</span> 🐸</div>
+                    <p class="text-gray-400 mt-2">Secure, offline data cleaning for professionals.</p>
+                </div>
+                
+                <div class="md:text-right">
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <p><strong>Privacy Policy:</strong> DataFrog is a local-first desktop application. The software runs entirely offline on the user's device. We do not collect, store, or transmit any user data, CSV files, or personal information to any external servers. The only data collected is standard purchase information by our payment processor for license verification.</p>
+                        <p class="mt-4"><strong>Terms of Service:</strong> This software is provided "as is", without warranty of any kind. By downloading, you agree that the developer is not liable for any data loss resulting from the use of this tool.</p>
+                        <p class="mt-4">&copy; <span id="current-year">2023</span> DataFrog. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
